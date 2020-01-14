@@ -1,4 +1,7 @@
-<%= form_for @user, url: "/users/#{@user.id}", html: {method: :patch} do |f| %>
+<%= link_to "一覧画面",  users_path%>
+<%= link_to "投稿", new_user_path %>
+
+<%= form_for @user, url: user_path(@user.id), html: {method: :patch} do |f| %>
   <p>投稿</p>
   <p>お名前：<%= f.text_field :name %></P>
   <p>年齢：<%= f.text_field :age %></p>

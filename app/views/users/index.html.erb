@@ -1,9 +1,9 @@
-<%= link_to "投稿画面へ", "/users/new"%>
+<%= flash[:notice] %>
+<p>
+<%= link_to "一覧画面",  users_path%>
+<%= link_to "投稿", new_user_path %>
+</p>
+
 <% @users.each do |user| %>
-  <p>
-    <%= user.name%>
-    <%= user.age%>
-    <%= link_to "編集", "/users/#{user.id}/edit", method: :get %>
-    <%= link_to "削除", "/users/#{user.id}", method: :delete, data: {confirm: "削除しますか？"} %>
-  </p>
+  <p>名前：<%= link_to user.name, user_path(user.id) %> 　<%= user.age %> 歳</p>
 <% end %>
